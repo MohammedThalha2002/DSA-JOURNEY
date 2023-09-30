@@ -1,4 +1,4 @@
-package Algorithms.Recursion;
+package Algorithms.Recursion.Arrays;
 
 public class BinarySearch {
     public static void main(String[] args) {
