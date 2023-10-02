@@ -22,5 +22,4 @@ public class NumberOfSteps {
             return helper(num - 1, ++count);
         }
     }
-
 }

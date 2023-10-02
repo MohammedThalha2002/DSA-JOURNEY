@@ -1,4 +1,4 @@
-package Algorithms.Recursion.Arrays;
+package Algorithms.Recursion.Searching;
 
 import java.util.*;
 
