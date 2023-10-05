@@ -1,6 +1,6 @@
 package Algorithms.Recursion.Patterns;
 
-public class BaseTraiangles {
+public class BaseTriangles {
     public static void main(String[] args) {
         int n = 5;
         System.out.println("Base Traingle 1");
