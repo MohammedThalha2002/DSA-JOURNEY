@@ -15,5 +15,5 @@ public class Palindrome {
         int rem = n % 10;
         // rem * 10^3 or 10^2 .... + n/10
         return rem * (int) Math.pow(10, ((int) Math.log10(n))) + numRev(n / 10);
-    }
+    } 
 }
