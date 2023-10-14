@@ -3,7 +3,7 @@ package Algorithms.searching;
 public class FloorOfNumber {
     public static void main(String[] args) {
         int[] arr = { 2, 3, 5, 9, 14, 16, 18 };
-        int floor = 555;
+        int floor = 16;
         int res = floorofNumber(arr, floor);
         System.out.println("The floor of the number from the arry is " + res);
     }
@@ -15,11 +15,9 @@ public class FloorOfNumber {
         while (start <= end) {
             int mid = start + (end - start) / 2;
 
-            if (arr[mid] == floor)
-                return arr[mid];
-            else if (floor > arr[mid])
+            if (floor > arr[mid])
                 start = mid + 1;
-            else if (floor < arr[mid])
+            else
                 end = mid - 1;
 
         }

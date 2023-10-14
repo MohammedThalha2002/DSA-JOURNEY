@@ -2,8 +2,8 @@ package Algorithms.searching;
 
 public class CeilOfNumber {
     public static void main(String[] args) {
-        int[] arr = { 2, 3, 5, 9, 14, 16, 18 };
-        int ceil = 25;
+        int[] arr = { 0, 1, 2, 3, 4, 5, 6 };
+        int ceil = 4;
         int res = ceilofNumber(arr, ceil);
         System.out.println("The ceil of the number from the arry is " + res);
     }
@@ -15,18 +15,16 @@ public class CeilOfNumber {
         while (start <= end) {
             int mid = start + (end - start) / 2;
 
-            if (arr[mid] == ceil)
-            return arr[mid];
-            else if (ceil > arr[mid])
-            start = mid + 1;
-            else if (ceil < arr[mid])
-            end = mid - 1;
+            if (ceil > arr[mid])
+                start = mid + 1;
+            else
+                end = mid - 1;
         }
 
-        if (start >= arr.length) {
+        if (start + 1 >= arr.length) {
             return -1;
         } else
-            return arr[start];
+            return arr[start + 1];
 
     }
 }
