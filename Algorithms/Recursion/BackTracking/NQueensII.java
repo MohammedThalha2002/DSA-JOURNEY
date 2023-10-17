@@ -1,28 +1,53 @@
 package Algorithms.Recursion.BackTracking;
 
-public class NQueens {
+import java.util.*;
+
+public class NQueensII {
     public static void main(String[] args) {
-        int n = 1;
+        int n = 4;
         boolean[][] board = new boolean[n][n];
-        nQueens(board, 0);
+        List<List<String>> ans = nQueens(board, 0);
+
+        for (List<String> list : ans) {
+            System.out.println(list);
+        }
     }
 
-    public static void nQueens(boolean[][] board, int row) {
+    public static List<List<String>> nQueens(boolean[][] board, int row) {
         // base condition
         if (row == board.length) {
             // found the answer
-            display(board);
-            return;
+            List<List<String>> outer = new ArrayList<>();
+            List<String> inner = new ArrayList<>();
+            for (boolean[] r : board) {
+                String ans = "";
+                for (boolean c : r) {
+                    if (c) {
+                        ans += "Q";
+                    } else {
+                        ans += ".";
+                    }
+                }
+                inner.add(ans);
+            }
+
+            outer.add(inner);
+
+            return outer;
         }
+
+        List<List<String>> res = new ArrayList<>();
 
         for (int col = 0; col < board.length; col++) {
             // checking the place is safe then placing the Queen
             if (isSafe(board, row, col)) {
                 board[row][col] = true;
-                nQueens(board, row + 1);
+                res.addAll(nQueens(board, row + 1));
                 board[row][col] = false; // making back to false
             }
         }
+
+        return res;
     }
 
     public static boolean isSafe(boolean[][] board, int row, int col) {
