@@ -1,4 +1,4 @@
-package Algorithms.Recursion.BackTracking;
+package Algorithms.Recursion.Maze;
 
 import java.util.ArrayList;
 import java.util.List;

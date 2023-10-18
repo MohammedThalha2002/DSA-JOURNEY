@@ -2,27 +2,32 @@ package Algorithms.Recursion.BackTracking;
 
 public class NQueens {
     public static void main(String[] args) {
-        int n = 1;
+        int n = 4;
         boolean[][] board = new boolean[n][n];
-        nQueens(board, 0);
+        int ans = nQueens(board, 0);
+        System.out.println("\nThe total possibilities of arrangements are " + ans);
     }
 
-    public static void nQueens(boolean[][] board, int row) {
+    public static int nQueens(boolean[][] board, int row) {
         // base condition
         if (row == board.length) {
             // found the answer
             display(board);
-            return;
+            return 1;
         }
+
+        int count = 0;
 
         for (int col = 0; col < board.length; col++) {
             // checking the place is safe then placing the Queen
             if (isSafe(board, row, col)) {
                 board[row][col] = true;
-                nQueens(board, row + 1);
+                count += nQueens(board, row + 1);
                 board[row][col] = false; // making back to false
             }
         }
+
+        return count;
     }
 
     public static boolean isSafe(boolean[][] board, int row, int col) {

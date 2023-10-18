@@ -1,4 +1,4 @@
-package Algorithms.Recursion.BackTracking;
+package Algorithms.Recursion.Maze;
 
 public class MazeWithObstacle {
     public static void main(String[] args) {
