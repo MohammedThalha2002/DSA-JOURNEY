@@ -54,15 +54,4 @@ public class MergeSort {
 
         return sortedArr;
     }
-
-    // in-place sorting - without using the extra array space
-    public static int[] mergeSortinPlace(int[] arr){
-        if (arr.length == 1) {
-            return arr;
-        }
-
-        int mid = arr.length / 2;
-
-        return null;
-    }
 }

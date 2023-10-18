@@ -1,7 +1,5 @@
 package Algorithms.Recursion.SubSets;
 
-import java.util.ArrayList;
-
 public class SkipCharacter {
     public static void main(String[] args) {
         String str = "bacdafaabghaaaa";
