@@ -13,7 +13,7 @@ public class SudokuSolver {
                 { 0, 0, 5, 2, 0, 6, 3, 0, 0 } };
 
         boolean isSolved = solveSukdoku(board);
-        if(isSolved){
+        if (isSolved) {
             display(board);
         } else {
             System.out.println("This sudoku cannot be solved");
@@ -74,8 +74,8 @@ public class SudokuSolver {
             }
         }
         // checking the 3x3 matrix
-        for (int i = 0; i < max; i++) {
-            
+        for (int i = 0; i < 3; i++) {
+
         }
         return true;
     }
