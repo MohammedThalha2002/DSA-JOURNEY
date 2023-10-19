@@ -73,6 +73,10 @@ public class SudokuSolver {
                 return false;
             }
         }
+        // checking the 3x3 matrix
+        for (int i = 0; i < max; i++) {
+            
+        }
         return true;
     }
 
