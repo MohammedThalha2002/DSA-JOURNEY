@@ -5,10 +5,13 @@ public class Main {
 
         DLL dll = new DLL();
 
-        dll.insert(0);
         dll.insert(1);
         dll.insert(2);
         dll.insert(3);
+        dll.insert(4);
+        dll.display();
+
+        dll.delete(2);
 
         dll.display();
 

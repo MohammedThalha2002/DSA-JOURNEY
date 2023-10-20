@@ -55,6 +55,7 @@ public class LL {
         size++;
     }
 
+    // insert at specific index
     public void insert(int val, int index) {
         Node node = new Node(val);
         if ((index < 0 || index > size)) {
