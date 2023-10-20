@@ -39,7 +39,7 @@ public class LL {
         size++;
     }
 
-    // insert at first
+    // insert node at first
     public void insertFirst(int val) {
         Node node = new Node(val);
         // if insertFirst was called before the insert function
@@ -79,7 +79,7 @@ public class LL {
         size++;
     }
 
-    // get the element at specific index
+    // get the node value at specific index
     public int get(int index) {
         if (index >= size || index < 0) {
             System.out.println("Not found");
@@ -96,7 +96,7 @@ public class LL {
         return temp.value;
     }
 
-    // update an element at the specific index
+    // update node value at the specific index
     public void update(int val, int index) {
         if (size == 0) {
             System.out.println("Element not found");
@@ -107,7 +107,70 @@ public class LL {
         for (int i = 1; i <= index; i++) {
             temp = temp.next;
         }
+
         temp.value = val;
+    }
+
+    // deleting a node
+    public void delete() {
+        if (size == 0) {
+            System.out.println("No item is present");
+            return;
+        }
+
+        Node temp = head;
+        for (int i = 1; i < size - 1; i++) {
+            temp = temp.next;
+        }
+        // found the last before element
+        temp.next = null;
+        tail = temp;
+        size--;
+    }
+
+    // deleting a node at specific index
+    public void delete(int index) {
+        // deleting the starting node
+        if (index == 0) {
+            head = head.next;
+            // if we have only one node in LL
+            if (head == null) {
+                tail = null;
+            }
+            size--;
+            return;
+        }
+        // deleting the last node
+        if (index == size - 1) {
+            delete();
+            return;
+        }
+        // deleting at other index
+        Node temp = head;
+        for (int i = 1; i < index; i++) {
+            temp = temp.next;
+        }
+        Node delNode = temp.next;
+        temp.next = delNode.next;
+        delNode.next = null;
+        size--;
+    }
+
+    // find a node present
+    public int find(int val) {
+        if (size == 0) {
+            return -1;
+        }
+
+        Node temp = head;
+        for (int i = 1; i < size + 1; i++) {
+            if (temp.value == val) {
+                return i - 1;
+            }
+            temp = temp.next;
+        }
+
+        return -1;
     }
 
     // display the linked list
