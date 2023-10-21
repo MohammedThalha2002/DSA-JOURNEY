@@ -1,18 +1,18 @@
 package DataStructures.LinkedList;
 
-public class DLL {
+public class CircularLinkedList {
+
     private Node head;
     private Node tail;
     private int size;
 
-    public DLL() {
-        this.size = 0;
+    public CircularLinkedList() {
+        size = 0;
     }
 
     private class Node {
         private int value;
         private Node next;
-        private Node prev;
 
         public Node(int val) {
             this.value = val;
@@ -29,11 +29,11 @@ public class DLL {
             head = newNode;
             tail = newNode;
         } else {
-            // 3) if already an existing DL is present
+            // 3) if already an existing LL is present
             // --- inserting at the last
             tail.next = newNode;
-            newNode.prev = tail;
             tail = newNode;
+            newNode.next = head;
         }
 
         size++;
@@ -49,8 +49,8 @@ public class DLL {
         } else {
             // if already an existing LL is present - insert at first
             node.next = head;
-            head.prev = node;
             head = node;
+            tail.next = head;
         }
 
         size++;
@@ -76,11 +76,8 @@ public class DLL {
         for (int i = 1; i < index; i++) {
             temp = temp.next;
         }
-        Node nextNode = temp.next;
-        node.next = nextNode;
-        nextNode.prev = node;
+        node.next = temp.next;
         temp.next = node;
-        node.prev = temp;
         size++;
     }
 
@@ -123,9 +120,12 @@ public class DLL {
             return;
         }
 
-        Node temp = get(size - 2);
+        Node temp = head;
+        for (int i = 1; i < size - 1; i++) {
+            temp = temp.next;
+        }
         // found the last before element
-        temp.next = null;
+        temp.next = head;
         tail = temp;
         size--;
     }
@@ -152,9 +152,6 @@ public class DLL {
         Node delNode = temp.next;
         temp.next = delNode.next;
         delNode.next = null;
-        Node nextNode = temp.next;
-        nextNode.prev = delNode.prev;
-        delNode.prev = null;
         size--;
     }
 
@@ -182,31 +179,11 @@ public class DLL {
             System.out.println("LinkedList is Empty");
         }
         // get the first node
-        // front to back traversal
-        Node start = head;
-        while (start != null) {
-            System.out.print(start.value);
-            if (start.next != null) {
-                System.out.print(" -> ");
-            }
-            start = start.next;
-        }
-        System.out.println();
-    }
-
-    // display the linked list in reverse
-    public void displayRev() {
-        System.out.println();
-
-        // get the last node
-        Node last = tail;
-        while (last != null) {
-            System.out.print(last.value);
-            if (last.prev != null) {
-                System.out.print(" -> ");
-            }
-            last = last.prev;
-        }
+        Node temp = head;
+        do {
+            System.out.print(temp.value + "->");
+            temp = temp.next;
+        } while (temp != head);
         System.out.println();
     }
 }

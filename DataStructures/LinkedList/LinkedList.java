@@ -1,12 +1,12 @@
 package DataStructures.LinkedList;
 
-public class LL {
+public class LinkedList {
 
     private Node head;
     private Node tail;
     private int size;
 
-    public LL() {
+    public LinkedList() {
         size = 0;
     }
 
@@ -78,6 +78,33 @@ public class LL {
         node.next = temp.next;
         temp.next = node;
         size++;
+    }
+
+    // insert using recursion
+    public void insertRec(int val, int index) {
+        helper(val, index, head);
+    }
+
+    public void helper(int val, int index, Node temp) {
+        // base
+        // if index is zero
+        if (index == 0) {
+            Node node = new Node(val);
+            node.next = head;
+            head = node;
+            size++;
+            return;
+        }
+        // if index is not zero
+        if (index == 1) {
+            Node node = new Node(val);
+            node.next = temp.next;
+            temp.next = node;
+            size++;
+            return;
+        }
+
+        helper(val, --index, temp.next);
     }
 
     // get the node value at specific index
