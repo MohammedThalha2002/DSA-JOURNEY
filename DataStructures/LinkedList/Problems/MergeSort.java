@@ -14,14 +14,14 @@ public class MergeSort {
         list.insert(-1);
         list.display();
 
-        Node ansHead = mergerSort(list.head);
+        Node ansHead = mergeSort(list.head);
         System.out.println("The sorted list is ");
         System.out.println("---------------------------------");
         display(ansHead);
         System.out.println("---------------------------------");
     }
 
-    public static Node mergerSort(Node node) {
+    public static Node mergeSort(Node node) {
         if (node == null || node.next == null) {
             return node;
         }
@@ -31,9 +31,9 @@ public class MergeSort {
         Node nextToMid = mid.next;
         mid.next = null;
         //
-        Node left = mergerSort(node);
+        Node left = mergeSort(node);
         display(left);
-        Node right = mergerSort(nextToMid);
+        Node right = mergeSort(nextToMid);
         display(right);
 
         return merge(left, right);
