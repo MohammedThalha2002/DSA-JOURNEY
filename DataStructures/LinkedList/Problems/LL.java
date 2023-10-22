@@ -56,4 +56,23 @@ public class LL {
         }
         System.out.println();
     }
+
+    // display the linked list
+    public void display(Node head) {
+        System.out.println();
+        if (head == null) {
+            System.out.println("LinkedList is Empty");
+        }
+        // get the first node
+        Node temp = head;
+
+        while (temp != null) {
+            System.out.print(temp.value);
+            if (temp.next != null) {
+                System.out.print("->");
+            }
+            temp = temp.next;
+        }
+        System.out.println();
+    }
 }

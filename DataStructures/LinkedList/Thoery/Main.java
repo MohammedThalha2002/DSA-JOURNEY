@@ -1,4 +1,4 @@
-package DataStructures.LinkedList;
+package DataStructures.LinkedList.Thoery;
 
 public class Main {
     public static void main(String[] args) {
