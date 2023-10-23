@@ -38,6 +38,21 @@ public class LL {
         }
     }
 
+    // get the node value at specific index
+    public Node get(int index) {
+        if (index < 0) {
+            System.out.println("Not found");
+            return null;
+        }
+        // get the first node
+        Node temp = head;
+        for (int i = 1; i <= index; i++) {
+            temp = temp.next;
+        }
+
+        return temp;
+    }
+
     // display the linked list
     public void display() {
         System.out.println();
@@ -74,5 +89,21 @@ public class LL {
             temp = temp.next;
         }
         System.out.println();
+    }
+
+    // size of the linked list
+    public int size() {
+        int size = 0;
+        if (head == null) {
+            return size;
+        }
+        // get the first node
+        Node temp = head;
+
+        while (temp != null) {
+            size++;
+            temp = temp.next;
+        }
+        return size;
     }
 }
