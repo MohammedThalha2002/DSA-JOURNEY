@@ -11,7 +11,7 @@ public class ReverseLL {
         list.insert(3);
         list.insert(4);
         list.display();
-        // reverseLL(list.head, list);
+        reverseLL(list.head, list);
         inPlaceReversal(list);
         list.display();
     }
@@ -37,13 +37,13 @@ public class ReverseLL {
             return;
         }
         Node prev = null;
-        Node first = list.head;
-        Node next = first.next;
+        Node curr = list.head;
+        Node next = curr.next;
 
-        while (first.next != null) {
-            first.next = prev;
-            prev = first;
-            first = next;
+        while (curr.next != null) {
+            curr.next = prev;
+            prev = curr;
+            curr = next;
             if (next != null)
                 next = next.next;
             list.head = prev;
