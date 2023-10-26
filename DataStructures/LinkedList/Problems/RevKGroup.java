@@ -11,23 +11,41 @@ public class RevKGroup {
         list.insert(3);
         list.insert(4);
         list.insert(5);
+        list.insert(6);
         list.display();
         int k = 2;
         reverseKGroups(list, k);
-        // list.display();
     }
 
     public static void reverseKGroups(LL list, int k) {
-        int size = list.size();
+        if (list.head == null || k == 1) {
+            return;
+        }
+
         Node head = list.head;
 
         Node prev = null;
         Node curr = head;
         Node next = curr.next;
+        Node prevLast = curr;
+        Node newFirst = curr;
+        Node endLast = curr;
 
-        for (int i = 1; i < size; i += k) {
+        for (int j = 0; j < k; j++) {
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+            if (next != null)
+                next = next.next;
+        }
+
+        head = prev;
+        list.display(prev);
+
+        while (next != null) {
             //
-            Node start = curr;
+            endLast = curr;
+            prev = null;
             for (int j = 0; j < k; j++) {
                 curr.next = prev;
                 prev = curr;
@@ -36,8 +54,17 @@ public class RevKGroup {
                     next = next.next;
             }
 
-            head = curr;
+            newFirst = prev;
+            prevLast.next = newFirst;
+            prevLast = endLast;
             list.display(prev);
+            list.display(head);
         }
+
+        if (curr != null) {
+            endLast.next = curr;
+        }
+
+        list.display(head);
     }
 }
