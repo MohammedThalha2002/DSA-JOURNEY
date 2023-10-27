@@ -21,13 +21,13 @@ public class RotateRight {
     public static void reverseRight(LL list, int k) {
         Node prev = null;
         Node curr = list.head;
-        for (int i = 0; i < k; i++) {
-            // 
-            while(curr.next != null){
+        for (int i = 0; i < (k % list.size()); i++) {
+            //
+            while (curr.next != null) {
                 prev = curr;
                 curr = curr.next;
             }
-            // 
+            //
             prev.next = null;
             curr.next = list.head;
             list.head = curr;
