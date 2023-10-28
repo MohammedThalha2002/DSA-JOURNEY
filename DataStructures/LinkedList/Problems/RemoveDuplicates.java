@@ -13,6 +13,7 @@ public class RemoveDuplicates {
         list.insert(3);
         list.insert(4);
         list.insert(4);
+        list.insert(4);
         list.display();
         removeDuplicates(list);
         list.display();
