@@ -1,3 +1,5 @@
+Easy Interview Problems on Recursion
+
 Print 1 to n without using loops
 Print N to 1 without loop
 Mean of Array using Recursion
@@ -15,3 +17,44 @@ Recursive function to check if a string is palindrome
 Count Set-bits of number using Recursion
 Print Fibonacci Series in reverse order using Recursion
 Coin Change | DP-7
+
+
+Medium Interview Problems on Recursion
+
+Flood Fill Algorithm
+Recursively remove all adjacent duplicates
+Sort the Queue using Recursion
+Reversing a queue using recursion
+Binary to Gray code using recursion
+Delete a linked list using recursion
+Product of 2 Numbers using Recursion
+Programs for Printing Pyramid Patterns using Recursion
+Length of longest palindromic sub-string : Recursion
+Program for Tower of Hanoi Algorithm
+Time Complexity Analysis | Tower Of Hanoi (Recursion)
+Program to calculate value of nCr using Recursion
+Find geometric sum of the series using recursion
+Convert a String to an Integer using Recursion
+DFS traversal of a Tree
+Bottom View of a Binary Tree using Recursion
+Write a program to print all Permutations of given String
+Print all subsets of a given Set or Array
+Print all possible paths from top left to bottom right of a mXn matrix
+Print all combinations of balanced parentheses
+Longest Common Subsequence (LCS)
+Print Right View of a Binary Tree
+
+
+Hard Interview Problems on Recursion
+
+Find the value of a number raised to its reverse
+How to Sort a Stack using Recursion
+Reverse a Doubly linked list using recursion
+Given a string, print all possible palindromic partitions
+Check if a string is a scrambled form of another string
+Word Break Problem | DP-32
+Print all palindromic partitions of a string
+N Queen Problem | Backtracking-3
+Algorithm to Solve Sudoku | Sudoku Solver
+The Knight’s tour problem
+Generate all N digit numbers having absolute difference as K between adjacent digits
