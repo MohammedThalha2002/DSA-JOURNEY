@@ -46,7 +46,7 @@ public class ReverseLL {
             curr = next;
             if (next != null)
                 next = next.next;
-            list.head = prev;
         }
+        list.head = prev;
     }
 }
