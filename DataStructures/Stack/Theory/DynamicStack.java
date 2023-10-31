@@ -12,7 +12,6 @@ public class DynamicStack extends CustomStack {
 
     @Override
     public boolean push(int value) throws Exception {
-        // TODO Auto-generated method stub
         if (isFull()) {
             int[] temp = new int[data.length * 2];
 
