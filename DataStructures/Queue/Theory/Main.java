@@ -16,6 +16,7 @@ public class Main {
         // System.out.println(queue.peek());
 
         CircularQueue cQueue = new CircularQueue(5);
+        cQueue.display();
 
         cQueue.insert(0);
         cQueue.insert(1);

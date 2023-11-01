@@ -35,6 +35,7 @@ public class CircularQueue {
         front++;
         front = front % data.length;
         size--;
+        System.out.println("Removed : " + removed);
 
         return removed;
     }
@@ -49,20 +50,15 @@ public class CircularQueue {
     public void display() {
         if (isEmpty()) {
             System.out.println("Stack is Empty");
+            return;
         }
 
-        if (end <= front) {
-            for (int i = front; i < data.length; i++) {
-                System.out.print(data[i] + " ");
-            }
-            for (int i = 0; i < end; i++) {
-                System.out.print(data[i] + " ");
-            }
-        } else {
-            for (int i = front; i < end; i++) {
-                System.out.print(data[i] + " ");
-            }
-        }
+        int i = front;
+        do {
+            System.out.print(i + " ");
+            i++;
+            i = i % data.length;
+        } while (i != end);
 
         System.out.println();
     }
