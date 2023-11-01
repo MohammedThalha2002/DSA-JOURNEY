@@ -21,8 +21,8 @@ public class CircularQueue {
         if (isFull()) {
             return false;
         }
-        data[end % data.length] = item;
-        end++;
+        data[end++] = item;
+        end = end % data.length;
         size++;
         return true;
     }
@@ -57,7 +57,7 @@ public class CircularQueue {
             }
             for (int i = 0; i < end; i++) {
                 System.out.print(data[i] + " ");
-            }  
+            }
         } else {
             for (int i = front; i < end; i++) {
                 System.out.print(data[i] + " ");

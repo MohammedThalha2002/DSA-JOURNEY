@@ -23,7 +23,7 @@ public class Main {
         cQueue.insert(3);
         cQueue.insert(4);
         cQueue.display();
-        
+
         cQueue.remove();
         cQueue.remove();
         cQueue.insert(4);
