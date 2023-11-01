@@ -51,16 +51,19 @@ public class CircularQueue {
             System.out.println("Stack is Empty");
         }
 
-        int newEnd = 0;
-        if(end < data.length){
-            newEnd = end;
-        } else {
-            newEnd = data.length;
+        if (end < front) {
+            for (int i = front; i < data.length; i++) {
+                System.out.print(data[i] + " ");
+            }
+            for (int i = 0; i < data.length; i++) {
+                System.out.print(data[i] + " ");
+            }
+        } else if (front == end) {
+            for (int i = front; i < data.length; i++) {
+                System.out.print(data[i] + " ");
+            }
         }
 
-        for (int i = front; i < end; i++) {
-            System.out.print(data[i] + " ");
-        }
         System.out.println();
     }
 
