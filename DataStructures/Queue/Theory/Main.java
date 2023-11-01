@@ -14,5 +14,19 @@ public class Main {
         queue.remove();
         queue.display();
         System.out.println(queue.peek());
+
+        CircularQueue cQueue = new CircularQueue(5);
+
+        cQueue.insert(0);
+        cQueue.insert(1);
+        cQueue.insert(2);
+        cQueue.insert(3);
+        cQueue.display();
+        System.out.println(cQueue.peek());
+
+        cQueue.remove();
+        cQueue.display();
+        System.out.println(cQueue.peek());
+
     }
 }
