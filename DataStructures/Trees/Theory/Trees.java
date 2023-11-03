@@ -52,4 +52,14 @@ public class Trees {
             populate(sc, node.right);
         }
     }
+
+    public void display(){
+        display(root, "");
+    }
+
+    private void display(Node node, String intend) {
+        System.out.println(node.value + intend );
+        display(node.left, intend + "\t");
+        display(node.right, intend + "\t");
+    }
 }
