@@ -80,7 +80,7 @@ public class Trees {
             for (int i = 0; i < level - 1; i++) {
                 System.out.print("     ");
             }
-            System.out.println("--->" + node.value);
+            System.out.println("|--->" + node.value);
         }
 
         prettyDisplay(node.left, level + 1);
