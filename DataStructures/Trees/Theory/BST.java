@@ -62,6 +62,18 @@ public class BST {
         node.height = Math.max(height(node.left), height(node.right)) + 1;
     }
 
+    public boolean isBalanced() {
+        return isBalanced(root);
+    }
+
+    private boolean isBalanced(Node node) {
+        if (node == null) {
+            return true;
+        }
+
+        return Math.abs(height(node.right) - height(node.left)) <= 1 && isBalanced(node.left) && isBalanced(node.right);
+    }
+
     public void display() {
         // display(root, "");
         prettyDisplay(root, 0);
