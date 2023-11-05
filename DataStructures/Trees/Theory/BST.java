@@ -1,12 +1,12 @@
 package DataStructures.Trees.Theory;
 
 public class BST {
-    private Node root;
+    public Node root;
 
     public BST() {
     }
 
-    private class Node {
+    public class Node {
         Node left;
         Node right;
         int value;
