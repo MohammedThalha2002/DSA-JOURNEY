@@ -9,7 +9,7 @@ import DataStructures.Trees.Theory.BST.Node;
 // 3) Serialization (conversion of arr to tree or vice versa)
 public class PreOrderTraversal {
     public static void main(String[] args) {
-        
+
         BST bst = new BST();
         int[] arr = { 4, 2, 1, 6, 3, 7 };
         for (int val : arr) {
@@ -26,8 +26,8 @@ public class PreOrderTraversal {
             return;
         }
 
-        printPreOrderTraversal(node.left);
         System.out.print(node.value + ",");
+        printPreOrderTraversal(node.left);
         printPreOrderTraversal(node.right);
     }
 }
