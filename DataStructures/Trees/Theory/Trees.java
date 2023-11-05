@@ -53,7 +53,7 @@ public class Trees {
     }
 
     public void display() {
-        // display(root, "");
+        display(root, "");
         prettyDisplay(root, 0);
     }
 

@@ -13,7 +13,7 @@ public class FindDuplicate {
         // An Array contains one duplicate element and the array contains elements from 1 to N.
         // Find the missing numnber without altering the array
 
-        int[] arr = {4,2,3,3,1,5};
+        // int[] arr = {4,2,3,3,1,5};
         
     }
 }

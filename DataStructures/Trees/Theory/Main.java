@@ -4,11 +4,11 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        // Scanner sc = new Scanner(System.in);
-        // Trees tree = new Trees();
-        // tree.populate(sc);
-        // tree.display();
-        // sc.close();
+        Scanner sc = new Scanner(System.in);
+        Trees tree = new Trees();
+        tree.populate(sc);
+        tree.display();
+        sc.close();
 
         BST bst = new BST();
         int[] arr = { 10, 5, 15, 20, 2, 7, 12, 15 };
