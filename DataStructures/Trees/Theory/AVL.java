@@ -35,6 +35,7 @@ public class AVL {
 
     public void insert(int val) {
         insert(root, val);
+        root.height = Math.max(height(root.left), height(root.right)) + 1;
     }
 
     public void insert(Node node, int val) {
@@ -48,18 +49,54 @@ public class AVL {
             return;
         }
 
+        // insert left
         if (val < node.value) {
             insert(node.left, val);
             if (node.left == null)
                 node.left = new Node(val);
         } else {
+            // insert right
             insert(node.right, val);
             if (node.right == null)
                 node.right = new Node(val);
         }
 
-        root.height = Math.max(height(root.left), height(root.right)) + 1;
         node.height = Math.max(height(node.left), height(node.right)) + 1;
+        rotate(node);
+    }
+
+    private void rotate(Node node) {
+        // left heavy
+        if (height(node.left) - height(node.right) > 1) {
+            // left-left-case
+            if (height(node.left.left) > height(node.left.right)) {
+                rotateRight(node);
+            }
+            // left-right-case
+            if (height(node.left.right) > height(node.left.left)) {
+                rotateLeft(node.left);
+                rotateRight(node);
+            }
+        }
+
+        // right heavy
+        if (height(node.right) - height(node.left) > 1) {
+            // right-right-case
+            if (height(node.right.right) > height(node.right.left)) {
+                rotateLeft(node);
+            }
+            // right-left-case
+            if (height(node.right.left) > height(node.right.right)) {
+                rotateRight(node.right);
+                rotateLeft(node);
+            }
+        }
+    }
+
+    private void rotateLeft(Node left) {
+    }
+
+    private void rotateRight(Node node) {
     }
 
     public boolean isBalanced() {
