@@ -94,9 +94,11 @@ public class AVL {
     }
 
     private void rotateLeft(Node left) {
+        // rotate left
     }
 
     private void rotateRight(Node node) {
+        // rotate right
     }
 
     public boolean isBalanced() {
