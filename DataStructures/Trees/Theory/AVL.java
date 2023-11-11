@@ -34,48 +34,38 @@ public class AVL {
     }
 
     public void insert(int val) {
-        insert(root, val);
-        root.height = Math.max(height(root.left), height(root.right)) + 1;
+        root = insert(root, val);
     }
 
-    public void insert(Node node, int val) {
-        // adding the first root node
-        if (root == null) {
-            root = new Node(val);
-            return;
-        }
-
+    public Node insert(Node node, int val) {
         if (node == null) {
-            return;
+            Node newNode = new Node(val);
+            return newNode;
         }
 
         // insert left
         if (val < node.value) {
-            insert(node.left, val);
-            if (node.left == null)
-                node.left = new Node(val);
+            node.left = insert(node.left, val);
         } else {
             // insert right
-            insert(node.right, val);
-            if (node.right == null)
-                node.right = new Node(val);
+            node.right = insert(node.right, val);
         }
 
         node.height = Math.max(height(node.left), height(node.right)) + 1;
-        rotate(node);
+        return rotate(node);
     }
 
-    private void rotate(Node node) {
+    private Node rotate(Node node) {
         // left heavy
         if (height(node.left) - height(node.right) > 1) {
             // left-left-case
             if (height(node.left.left) > height(node.left.right)) {
-                rotateRight(node);
+                return rotateRight(node);
             }
             // left-right-case
             if (height(node.left.right) > height(node.left.left)) {
                 node.left = rotateLeft(node.left);
-                rotateRight(node);
+                return rotateRight(node);
             }
         }
 
@@ -83,14 +73,15 @@ public class AVL {
         if (height(node.right) - height(node.left) > 1) {
             // right-right-case
             if (height(node.right.right) > height(node.right.left)) {
-                rotateLeft(node);
+                return rotateLeft(node);
             }
             // right-left-case
             if (height(node.right.left) > height(node.right.right)) {
                 node.right = rotateRight(node.right);
-                rotateLeft(node);
+                return rotateLeft(node);
             }
         }
+        return node;
     }
 
     private Node rotateLeft(Node p) {
