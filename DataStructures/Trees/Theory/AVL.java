@@ -74,7 +74,7 @@ public class AVL {
             }
             // left-right-case
             if (height(node.left.right) > height(node.left.left)) {
-                rotateLeft(node.left);
+                node.left = rotateLeft(node.left);
                 rotateRight(node);
             }
         }
@@ -87,18 +87,38 @@ public class AVL {
             }
             // right-left-case
             if (height(node.right.left) > height(node.right.right)) {
-                rotateRight(node.right);
+                node.right = rotateRight(node.right);
                 rotateLeft(node);
             }
         }
     }
 
-    private void rotateLeft(Node left) {
+    private Node rotateLeft(Node p) {
         // rotate left
+        Node c = p.right;
+        Node t = c.left;
+
+        c.left = p;
+        p.right = t;
+
+        p.height = Math.max(height(p.left), height(p.right)) + 1;
+        c.height = Math.max(height(c.left), height(c.right)) + 1;
+
+        return c;
     }
 
-    private void rotateRight(Node node) {
+    private Node rotateRight(Node p) {
         // rotate right
+        Node c = p.left;
+        Node t = c.right;
+
+        c.right = p;
+        p.left = t;
+
+        p.height = Math.max(height(p.left), height(p.right)) + 1;
+        c.height = Math.max(height(c.left), height(c.right)) + 1;
+
+        return c;
     }
 
     public boolean isBalanced() {
