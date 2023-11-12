@@ -43,28 +43,25 @@ public class SegmentTree {
         return node;
     }
 
-    public int query(int start, int end){
+    public int query(int start, int end) {
         return query(root, start, end);
     }
 
-    public int query(Node node, int start, int end){
+    private int query(Node node, int start, int end) {
         // base
 
-        if(start > node.rightInterval || end < node.leftInterval){
+        if (start > node.rightInterval || end < node.leftInterval) {
             return 0;
         }
 
-        if(start >= node.leftInterval && end <= node.rightInterval){
+        if (start <= node.leftInterval && end >= node.rightInterval) {
             return node.data;
         }
-        
+
         int sum = 0;
 
-        if(start >= node.leftInterval){
-            return node.data;
-        }
-
-
+        sum += query(node.left, start, end);
+        sum += query(node.right, start, end);
 
         return sum;
     }

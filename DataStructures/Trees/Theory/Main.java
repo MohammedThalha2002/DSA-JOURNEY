@@ -28,5 +28,6 @@ public class Main {
         SegmentTree segmentTree = new SegmentTree();
         segmentTree.createTree(data);
         segmentTree.display();
+        System.out.println("Sum between 2,4 is " + segmentTree.query(2, 4));
     }
 }
