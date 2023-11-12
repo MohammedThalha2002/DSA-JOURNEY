@@ -3,6 +3,7 @@ package DataStructures.Trees.Theory;
 public class SegmentTree {
 
     Node root;
+    int[] arr;
 
     class Node {
         int data;
@@ -19,8 +20,15 @@ public class SegmentTree {
         }
     }
 
-    public void createTree(int[] arr) {
-        root = constructTree(arr, 0, arr.length - 1);
+    public SegmentTree(int[] arr) {
+        this.arr = new int[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            this.arr[i] = arr[i];
+        }
+    }
+
+    public void createTree() {
+        root = constructTree(this.arr, 0, this.arr.length - 1);
     }
 
     private Node constructTree(int[] arr, int start, int end) {
@@ -64,6 +72,26 @@ public class SegmentTree {
         sum += query(node.right, start, end);
 
         return sum;
+    }
+
+    public void update(int index, int value) {
+        update(root, index, value);
+    }
+
+    private int update(Node node, int index, int value) {
+        if (index >= node.leftInterval && index <= node.rightInterval) {
+            if (index == node.leftInterval && index == node.rightInterval) {
+                node.data = value;
+                return node.data;
+            }
+
+            int leftVal = update(node.left, index, value);
+            int rightVal = update(node.right, index, value);
+
+            node.data = leftVal + rightVal;
+        }
+
+        return node.data;
     }
 
     public void display() {
