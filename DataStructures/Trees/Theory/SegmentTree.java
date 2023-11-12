@@ -11,8 +11,7 @@ public class SegmentTree {
         Node left;
         Node right;
 
-        public Node(int data, int leftInterval, int rightInterval) {
-            this.data = data;
+        public Node(int leftInterval, int rightInterval) {
             this.leftInterval = leftInterval;
             this.rightInterval = rightInterval;
             this.left = null;
@@ -20,33 +19,54 @@ public class SegmentTree {
         }
     }
 
-    public void insert(int[] arr) {
+    public void createTree(int[] arr) {
         root = constructTree(arr, 0, arr.length - 1);
     }
 
-    private Node constructTree(int[] arr, int leftInterval, int rightInterval) {
+    private Node constructTree(int[] arr, int start, int end) {
         // base case
-        if (leftInterval == rightInterval) {
-            return createNode(arr, leftInterval, rightInterval);
+        if (start == end) {
+            int data = arr[start]; // arr[end]
+            Node node = new Node(start, end);
+            node.data = data;
+            return node;
         }
 
-        Node node = createNode(arr, leftInterval, rightInterval);
+        Node node = new Node(start, end);
 
-        int mid = (leftInterval + rightInterval) / 2;
-        node.left = constructTree(arr, leftInterval, mid);
-        node.right = constructTree(arr, mid + 1, rightInterval);
+        int mid = (start + end) / 2;
+
+        node.left = constructTree(arr, start, mid);
+        node.right = constructTree(arr, mid + 1, end);
+        node.data = node.left.data + node.right.data;
 
         return node;
     }
 
-    public Node createNode(int[] arr, int leftInterval, int rightInterval) {
-        int sum = 0;
-        for (int k = leftInterval; k < rightInterval + 1; k++) {
-            sum += arr[k];
+    public int query(int start, int end){
+        return query(root, start, end);
+    }
+
+    public int query(Node node, int start, int end){
+        // base
+
+        if(start > node.rightInterval || end < node.leftInterval){
+            return 0;
         }
 
-        Node node = new Node(sum, leftInterval, rightInterval);
-        return node;
+        if(start >= node.leftInterval && end <= node.rightInterval){
+            return node.data;
+        }
+        
+        int sum = 0;
+
+        if(start >= node.leftInterval){
+            return node.data;
+        }
+
+
+
+        return sum;
     }
 
     public void display() {
@@ -63,12 +83,12 @@ public class SegmentTree {
 
         if (level == 0) {
             // root node
-            System.out.println(node.data);
+            System.out.println(node.data + "(" + node.leftInterval + "," + node.rightInterval + ")");
         } else {
             for (int i = 0; i < level - 1; i++) {
-                System.out.print("|    ");
+                System.out.print("|         ");
             }
-            System.out.println("|--->" + node.data);
+            System.out.println("|-------->" + node.data + "(" + node.leftInterval + "," + node.rightInterval + ")");
         }
 
         prettyDisplay(node.left, level + 1);
