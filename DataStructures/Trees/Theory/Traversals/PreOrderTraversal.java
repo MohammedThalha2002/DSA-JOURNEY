@@ -1,5 +1,6 @@
-package DataStructures.Trees.Theory;
+package DataStructures.Trees.Theory.Traversals;
 
+import DataStructures.Trees.Theory.BST;
 import DataStructures.Trees.Theory.BST.Node;
 
 // NODE => LEFT => RIGHT

@@ -7,10 +7,10 @@ public class BST {
     }
 
     public class Node {
-        Node left;
-        Node right;
-        int value;
-        int height;
+        public Node left;
+        public Node right;
+        public int value;
+        public int height;
 
         public Node(int value) {
             this.value = value;
