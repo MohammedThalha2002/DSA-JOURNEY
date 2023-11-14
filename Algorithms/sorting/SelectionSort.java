@@ -1,11 +1,18 @@
 package Algorithms.sorting;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class SelectionSort {
     public static void main(String[] args) {
-        int[] arr = { 2 };
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
         selectionSort(arr);
+        sc.close();
     }
 
     public static void selectionSort(int[] arr) {
