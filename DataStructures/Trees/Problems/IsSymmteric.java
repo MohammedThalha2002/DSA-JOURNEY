@@ -28,7 +28,7 @@ public class IsSymmteric {
             int lvlSize = queue.size();
 
             for (int i = 0; i < lvlSize; i++) {
-
+                Node popNode = queue.poll();
             }
         }
 
