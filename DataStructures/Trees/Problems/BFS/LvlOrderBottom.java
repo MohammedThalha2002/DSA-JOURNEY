@@ -1,4 +1,4 @@
-package DataStructures.Trees.Theory.Searches;
+package DataStructures.Trees.Problems.BFS;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -8,7 +8,7 @@ import java.util.Queue;
 import DataStructures.Trees.Theory.BST;
 import DataStructures.Trees.Theory.BST.Node;
 
-public class BFS {
+public class LvlOrderBottom {
     public static void main(String[] args) {
         BST bst = new BST();
         int[] arr = { 4, 2, 6, 1, 3, 7, 5 };
@@ -16,31 +16,11 @@ public class BFS {
             bst.insert(arr[i]);
         }
         bst.display();
-        breadthFirstTraversal(bst.root);
-        System.out.println();
-        List<List<Integer>> res = bTraversal(bst.root);
+        List<List<Integer>> res = lvlOrderBottom(bst.root);
         System.out.println(res);
     }
 
-    public static void breadthFirstTraversal(Node node) {
-        System.out.println("Breadth First Traversal");
-        Queue<Node> queue = new LinkedList<>();
-        queue.add(node);
-
-        while (!queue.isEmpty()) {
-            Node popped = queue.poll();
-            System.out.print(popped.value + " -> ");
-            if (popped.left != null) {
-                queue.add(popped.left);
-            }
-            if (popped.right != null) {
-                queue.add(popped.right);
-            }
-        }
-
-    }
-
-    public static List<List<Integer>> bTraversal(Node node) {
+    public static List<List<Integer>> lvlOrderBottom(Node node) {
         List<List<Integer>> outer = new ArrayList<>();
 
         Queue<Node> queue = new LinkedList<>();
@@ -61,7 +41,7 @@ public class BFS {
                     queue.add(popped.right);
                 }
             }
-            outer.add(inner);
+            outer.add(0, inner);
 
         }
 

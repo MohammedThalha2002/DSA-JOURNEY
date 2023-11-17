@@ -1,4 +1,4 @@
-package DataStructures.Trees.Problems;
+package DataStructures.Trees.Problems.BFS;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

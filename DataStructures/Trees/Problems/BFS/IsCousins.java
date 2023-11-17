@@ -1,4 +1,4 @@
-package DataStructures.Trees.Problems;
+package DataStructures.Trees.Problems.BFS;
 
 import DataStructures.Trees.Theory.BST;
 import DataStructures.Trees.Theory.BST.Node;
