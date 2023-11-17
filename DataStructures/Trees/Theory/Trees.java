@@ -4,20 +4,24 @@ import java.util.Scanner;
 
 public class Trees {
 
-    private Node root;
+    public Node root;
 
     public Trees() {
 
     }
 
-    private class Node {
-        Node left;
-        Node right;
-        int value;
+    public class Node {
+        public Node left;
+        public Node right;
+        public int value;
 
         public Node(int value) {
             this.value = value;
         }
+    }
+
+    public Node createNode(int val) {
+        return new Node(val);
     }
 
     public void populate(Scanner sc) {
