@@ -12,14 +12,14 @@ public class DiaOfBT {
         }
         bst.display();
         int res = findDiameter(bst.root);
-        System.out.println(res);
+        System.out.println("The diameter of the tree is " + res);
     }
 
     static int diameter = 0;
 
     private static int findDiameter(Node node) {
         findHeight(node);
-        return diameter - 1;
+        return diameter;
     }
 
     private static int findHeight(Node node) {
