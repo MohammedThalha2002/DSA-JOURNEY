@@ -6,7 +6,7 @@ import DataStructures.Trees.Theory.BST.Node;
 public class DiaOfBT {
     public static void main(String[] args) {
         BST bst = new BST();
-        int[] arr = { 4, 2, 6, 1, 3, 7, 5 };
+        int[] arr = { 1, -2 };
         for (int i = 0; i < arr.length; i++) {
             bst.insert(arr[i]);
         }

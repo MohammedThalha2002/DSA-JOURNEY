@@ -57,18 +57,18 @@ public class Trees {
     }
 
     public void display() {
-        display(root, "");
+        // display(root, "");
         prettyDisplay(root, 0);
     }
 
-    private void display(Node node, String intend) {
-        if (node == null) {
-            return;
-        }
-        System.out.println(intend + node.value);
-        display(node.left, intend + "\t");
-        display(node.right, intend + "\t");
-    }
+    // private void display(Node node, String intend) {
+    // if (node == null) {
+    // return;
+    // }
+    // System.out.println(intend + node.value);
+    // display(node.left, intend + "\t");
+    // display(node.right, intend + "\t");
+    // }
 
     private void prettyDisplay(Node node, int level) {
         if (node == null) {
