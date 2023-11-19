@@ -21,6 +21,7 @@ public class FlattenBTtoLL {
         tree.display();
         flattenBTtoLL(tree.root);
         flattenBT(tree.root, tree);
+        flattenBinaryTreeToLL(tree.root, tree);
         System.out.println("Flatten Binary tree");
         tree.display();
         System.out.println(list);
@@ -36,7 +37,7 @@ public class FlattenBTtoLL {
         flattenBTtoLL(node.right);
     }
 
-    // best method
+    // normal method
     private static void flattenBT(Node node, Trees tree) {
         if (node == null) {
             return;
@@ -66,6 +67,29 @@ public class FlattenBTtoLL {
         }
 
         return checkFirstEmptyRightInLeftSubTree(node.right);
+    }
+
+    // best method
+    private static void flattenBinaryTreeToLL(Node node, Trees tree) {
+        if (node == null) {
+            return;
+        }
+
+        Node current = node;
+        while (current != null) {
+            // tree.display();
+            Node rightEmpty = current.left;
+            if (rightEmpty != null) {
+                Node right = current.right;
+                while (rightEmpty != null && rightEmpty.right != null) {
+                    rightEmpty = rightEmpty.right;
+                }
+                rightEmpty.right = right;
+                current.right = current.left;
+                current.left = null;
+            }
+            current = current.right;
+        }
     }
 
 }
