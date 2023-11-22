@@ -13,7 +13,7 @@ public class BuildTree {
     }
 
     public static Node buildTree(int[] preOrder, int[] inOrder) {
-        if (preOrder.length == 0 || inOrder.length == 0 || preOrder.length != inOrder.length) {
+        if (preOrder.length == 0 || inOrder.length == 0) {
             return null;
         }
 
