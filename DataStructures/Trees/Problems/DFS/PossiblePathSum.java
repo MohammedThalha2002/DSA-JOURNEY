@@ -18,9 +18,11 @@ public class PossiblePathSum {
         int sum = 10;
         int res = possiblePathSums(bst.root, sum);
         System.out.println("The total possibilities of the given path sum are " + res);
+        System.out.println(paths);
     }
 
     static List<Integer> list = new ArrayList<>();
+    static List<List<Integer>> paths = new ArrayList<>();
 
     private static int possiblePathSums(Node node, int sum) {
         if (node == null) {
@@ -48,14 +50,24 @@ public class PossiblePathSum {
         int count = 0;
         int s = 0;
         ListIterator<Integer> itr = list.listIterator(list.size());
+        List<Integer> path = new ArrayList<>();
         while (itr.hasPrevious()) {
-            s += itr.previous();
-            
+            int p = itr.previous();
+            s += p;
+
+            if (s > sum) {
+                break;
+            }
+
             if (s == sum) {
                 count++;
             }
+            path.add(p);
         }
-        System.out.println(list + " | with sum => " + count);
+        if (count != 0) {
+            paths.add(path);
+        }
+        // System.out.println(list + " | with sum => " + count);
         return count;
     }
 }
