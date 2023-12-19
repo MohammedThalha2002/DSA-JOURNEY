@@ -29,9 +29,7 @@ public class Fibo {
         }
 
         double res = fibo(n - 1, memo) + fibo(n - 2, memo);
-        if (!memo.containsKey(n)) {
-            memo.put(n, res);
-        }
+        memo.put(n, res);
         return res;
 
     }
