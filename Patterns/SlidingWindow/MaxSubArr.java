@@ -8,7 +8,7 @@ public class MaxSubArr {
         System.out.println(slidingWindowApproach(arr, size));
     }
 
-    // Time Complexity = O(n*k)
+    // Time Complexity => O(n*k)
     private static int bruteForceApproach(int[] arr, int k) {
         int size = arr.length - k + 1;
         int max = Integer.MIN_VALUE;
@@ -26,7 +26,7 @@ public class MaxSubArr {
         return max;
     }
 
-    // Time Complexity = O(n)
+    // Time Complexity => O(n)
     private static int slidingWindowApproach(int[] arr, int k) {
         int max = Integer.MIN_VALUE;
 
